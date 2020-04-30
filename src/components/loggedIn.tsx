@@ -24,7 +24,7 @@ export const LoggedIn: React.FC = () => {
       <>
         <pre>{JSON.stringify(accessToken, null, 2)}</pre>
 
-        <h2>User Info</h2>
+        <h2>User Profile</h2>
         <pre>{JSON.stringify(userProfile, null, 2)}</pre>
       </>
     </>
