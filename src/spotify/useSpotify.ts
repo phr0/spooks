@@ -27,7 +27,7 @@ export function useSpotify() {
   }
 
   function play(
-    playerId: string,
+    playerId: string | null,
     uris: string[],
     options?: { position_ms: number }
   ) {
