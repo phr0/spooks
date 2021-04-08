@@ -23,6 +23,8 @@ export function useSpotifyPlayer() {
 
   const [player, setPlayer] = React.useState<SpotifyPlayer | null>(null);
 
+  const [playerId, setPlayerId] = React.useState<string | null>(null);
+
   const [playState, setPlayState] = React.useState<PlayState | undefined>();
 
   React.useEffect(() => {
@@ -62,6 +64,7 @@ export function useSpotifyPlayer() {
     // Ready
     player.addListener("ready", ({ device_id }) => {
       console.log("Ready with Device ID", device_id);
+      setPlayerId(device_id);
       setPlayer(player);
     });
 
@@ -76,8 +79,10 @@ export function useSpotifyPlayer() {
 
   if (!player) return null;
 
+  console.log("playerid",player,player._options.id)
+
   return {
-    deviceId: player._options.id,
+    deviceId: playerId,
     playState,
   };
 }

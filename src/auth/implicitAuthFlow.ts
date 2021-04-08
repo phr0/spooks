@@ -13,7 +13,6 @@ function getTokenWithIframe(silentLoginUrl: string): Promise<string> {
   return new Promise((resolve, reject) => {
     function onLoad(e: any) {
       try {
-        debugger;
         const accessTokenRegex = /#access_token=([^&]*)&.*/i
         resolve(
           e.currentTarget.contentWindow.location.hash.replace(
